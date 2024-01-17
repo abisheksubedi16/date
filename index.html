@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanna Date?</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <script>
+        function getRandomPosition() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const buttonWidth = document.getElementById('noButton').offsetWidth;
+            const buttonHeight = document.getElementById('noButton').offsetHeight;
+
+            const maxX = windowWidth - buttonWidth;
+            const maxY = windowHeight - buttonHeight;
+
+            const randomX = Math.floor(Math.random() * (maxX/2));
+            const randomY = Math.floor(Math.random() * (maxY/2));
+
+            return { x: randomX, y: randomY };
+        }
+
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const newPosition = getRandomPosition();
+            button.style.transform = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+        }
+    </script>
+</head>
+<body>
+    <div class="buttons">
+        <h1>Date ma jam na mayalu</h1>
+        <h2>yes?</h2>
+    <button onclick="alert('la yes bhaneu maya aba chat ma disscus garam la muahhh')">Yes</button>
+    <button id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+</div>
+</body>
+</html>
